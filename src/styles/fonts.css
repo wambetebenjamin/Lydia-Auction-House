@@ -1,0 +1,149 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LYDIA AUCTION HOUSE — @font-face DECLARATIONS
+   ═══════════════════════════════════════════════════════════════════════════
+   THE DESIGN SOURCE CONTAINED **ZERO** @font-face RULES.
+   Verified: `grep -c "@font-face"` across every *.css, *.scss and *.html in
+   painter-1.0.0/ returns 0 — including css/bootstrap.min.css, which ships
+   without webfont declarations. The source loaded its faces from a
+   third-party Google Fonts <link> in the <head> of all 8 pages:
+
+       <link href="https://fonts.googleapis.com/css2?family=
+             Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap">
+
+   So there was nothing to copy "exactly". These declarations reproduce the
+   SOURCE FAMILIES (Roboto, Roboto Condensed) under self-hosted files, and add
+   the serif display face the brief requires for gallery prestige.
+
+   Serving: /public/fonts/*.woff2 — 292 KB total, no third-party request, so
+   there is no render-blocking external stylesheet and no font CLS.
+   `font-display: swap` preserves the source's own `&display=swap` behaviour.
+   Provenance and licence: FONTS.md
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Playfair Display — headings (EXTENSION: serif for gallery prestige) ──── */
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-400-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Playfair Display";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-400-italic.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-500-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-600-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-700-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("/fonts/playfair-display-latin-800-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Roboto — body. Family declared BY THE SOURCE via --bs-font-sans-serif ── */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/roboto-latin-400-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/roboto-latin-400-italic.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("/fonts/roboto-latin-500-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/roboto-latin-700-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Roboto Condensed — eyebrows / tickers. Loaded BY THE SOURCE but, as
+      noted in DESIGN-INVENTORY.md §3, never referenced by name in style.css.
+      Used here for the label role the source's condensed face implies. ───── */
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/roboto-condensed-latin-400-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: "Roboto Condensed";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/fonts/roboto-condensed-latin-700-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
