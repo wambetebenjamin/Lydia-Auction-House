@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LYDIA AUCTION HOUSE — EFFECT KEYFRAMES
+   Only the keyframes and per-effect mechanics that Tailwind cannot express
+   inline. Every one is neutralised in the single `prefers-reduced-motion`
+   block at the foot of this file.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── EFFECT-04 — per-letter stagger reveal ────────────────────────────────── */
+.lah-letter {
+    animation: lah-letter-rise 620ms var(--ease-out) both;
+}
+
+@keyframes lah-letter-rise {
+    from {
+        opacity: 0;
+        transform: translateY(0.42em) rotate(2.5deg);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ── EFFECT-04 — the glitch pass on the keyword "Art" ─────────────────────── */
+.lah-glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--primary);
+    font-style: italic;
+}
+
+/* Two offset copies, revealed through clip paths for a controlled single pass. */
+.lah-glitch::before,
+.lah-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    clip-path: inset(0 0 100% 0);
+}
+
+.lah-glitch[data-settled='true']::before {
+    content: 'Art';
+    color: var(--secondary);
+    animation: lah-glitch-a 620ms steps(3, end) 1 both;
+}
+
+.lah-glitch[data-settled='true']::after {
+    content: 'Art';
+    color: var(--status-live);
+    animation: lah-glitch-b 620ms steps(4, end) 1 both;
+}
+
+@keyframes lah-glitch-a {
+    0% { opacity: 0.9; clip-path: inset(0 0 62% 0); transform: translate(-3px, -2px); }
+    22% { clip-path: inset(38% 0 28% 0); transform: translate(3px, 1px); }
+    44% { clip-path: inset(66% 0 6% 0); transform: translate(-2px, 2px); }
+    68% { clip-path: inset(12% 0 54% 0); transform: translate(2px, -1px); }
+    100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+}
+
+@keyframes lah-glitch-b {
+    0% { opacity: 0.75; clip-path: inset(52% 0 0 0); transform: translate(3px, 2px); }
+    26% { clip-path: inset(10% 0 58% 0); transform: translate(-3px, -2px); }
+    50% { clip-path: inset(44% 0 22% 0); transform: translate(2px, -2px); }
+    74% { clip-path: inset(20% 0 40% 0); transform: translate(-2px, 2px); }
+    100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: none; }
+}
+
+/* ── EFFECT-23 — sequenced hero entrance. Each stage is a single class that
+      the orchestrator applies with a delay. Total budget: under 1.6 seconds. */
+.lah-stage {
+    animation: lah-stage-in 680ms var(--ease-out) both;
+}
+
+@keyframes lah-stage-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ── EFFECT-09 — SVG morph. A crossfade between three matched-point-count
+      glyphs, driven by opacity, so no path interpolation library is needed and
+      the reduced-motion path is the same code. */
+.lah-morph__state {
+    transition:
+        opacity var(--dur-slow) var(--ease-out),
+        transform var(--dur-slow) var(--ease-out);
+}
+
+.lah-morph__state[data-active='false'] {
+    opacity: 0;
+    transform: scale(0.92) rotate(-3deg);
+}
+
+.lah-morph__state[data-active='true'] {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── EFFECT-01 — arrival of the poster image beneath the 3D scene ─────────── */
+.lah-poster-in {
+    animation: lah-poster-in 520ms var(--ease-out) both;
+}
+
+@keyframes lah-poster-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ── EFFECT-05 — a newly arrived bid pulses once, then settles ───────────── */
+.lah-bid-arrive {
+    animation: lah-bid-arrive 520ms var(--ease-out);
+}
+
+@keyframes lah-bid-arrive {
+    0% { background-color: rgba(255, 228, 104, 0.55); }
+    100% { background-color: transparent; }
+}
+
+/* A freshly incremented figure scales briefly. */
+.lah-figure-pop {
+    animation: lah-figure-pop 320ms var(--ease-spring);
+}
+
+@keyframes lah-figure-pop {
+    0% { transform: scale(1); }
+    42% { transform: scale(1.055); }
+    100% { transform: scale(1); }
+}
+
+/* ── EFFECT-12 — the bid button's placed state ───────────────────────────── */
+.lah-bid-placed {
+    animation: lah-bid-placed 420ms var(--ease-spring);
+}
+
+@keyframes lah-bid-placed {
+    0% { transform: scale(1); }
+    34% { transform: scale(0.965); }
+    62% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* ── EFFECT-30 — a flipbook page fading its content in as it lands ───────── */
+.lah-page-content {
+    animation: lah-page-content 420ms var(--ease-out) both;
+}
+
+@keyframes lah-page-content {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* ── EFFECT-24 — cross-fade from skeleton to real card ───────────────────── */
+.lah-skeleton-out {
+    animation: lah-skeleton-out 260ms var(--ease-out) both;
+}
+
+@keyframes lah-skeleton-out {
+    to { opacity: 0; }
+}
+
+.lah-card-in {
+    animation: lah-card-in 380ms var(--ease-out) both;
+}
+
+@keyframes lah-card-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION — every effect above is neutralised here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+    /* EFFECT-04 — headline instant, no glitch. */
+    .lah-letter,
+    .lah-stage,
+    .lah-poster-in,
+    .lah-bid-arrive,
+    .lah-figure-pop,
+    .lah-bid-placed,
+    .lah-page-content,
+    .lah-card-in {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .lah-glitch::before,
+    .lah-glitch::after {
+        display: none !important;
+    }
+
+    .lah-skeleton-out {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    /* EFFECT-09 — a straight crossfade, no scale or rotation. */
+    .lah-morph__state {
+        transition: opacity 200ms linear !important;
+    }
+
+    .lah-morph__state[data-active='false'] {
+        transform: none !important;
+    }
+
+    .lah-morph__state[data-active='true'] {
+        transform: none !important;
+    }
+}

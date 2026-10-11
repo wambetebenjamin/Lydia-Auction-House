@@ -1,0 +1,279 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LYDIA AUCTION HOUSE — DESIGN TOKENS
+   ═══════════════════════════════════════════════════════════════════════════
+   PART 1  VERBATIM from design source (`painter-1.0.0/css/style.css` 1–7)
+   PART 2  VERBATIM from design source (`painter-1.0.0/css/bootstrap.min.css` :root)
+   PART 3  DERIVED from design source (values read out of `style.css`)
+   PART 4  EXTENSIONS — not present in the source; required by the build brief.
+           Every one is namespaced and listed in EXTENSIONS.md.
+
+   DO NOT edit PART 1 or PART 2. They are the extracted design source.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PART 1 — VERBATIM: `painter-1.0.0/css/style.css`, lines 1–7
+   The complete authored token set of the design source.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+    --primary: #FFE468;
+    --secondary: #8CC641;
+    --light: #F2F2F2;
+    --dark: #272630;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PART 2 — VERBATIM: `painter-1.0.0/css/bootstrap.min.css` :root block.
+   Bootstrap 5.0.0 defaults, with the four theme colours re-injected by the
+   template author. Reproduced with the author's overrides intact.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #FFE468;      /* overridden from #0d6efd */
+    --bs-secondary: #8CC641;    /* overridden from #6c757d */
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #F2F2F2;        /* overridden from #f8f9fa */
+    --bs-dark: #272630;         /* overridden from #212529 */
+    --bs-font-sans-serif: "Roboto", sans-serif;
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
+    /* Bootstrap 5.0.0 unmodified supporting variables */
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-bg: #fff;
+    --bs-border-width: 1px;
+    --bs-border-color: #dee2e6;
+    --bs-border-radius: 0.25rem;
+    --bs-border-radius-sm: 0.2rem;
+    --bs-border-radius-lg: 0.3rem;
+    --bs-border-radius-pill: 50rem;
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+}
+:root {
+    scroll-behavior: smooth;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PART 3 — DERIVED FROM SOURCE.
+   Every literal value below is read directly out of `painter-1.0.0/css/style.css`
+   and promoted to a named token. The original class usage is noted so the
+   mapping is auditable. Nothing here is invented.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+    /* `.btn`, `.navbar-dark .navbar-nav .nav-link`, `.service-item`, `.team-text`,
+       `.testimonial-carousel .owl-nav .owl-prev` — every transition in the theme. */
+    --tpl-transition-duration: .5s;
+    --tpl-transition: var(--tpl-transition-duration) ease;
+
+    /* `.btn:hover` — the signature lift shadow, vendor-prefixed trio in source. */
+    --tpl-btn-shadow-hover: 0 8px 6px -6px #555555;
+
+    /* `.btn-square` / `.btn-sm-square` / `.btn-lg-square` */
+    --tpl-square-sm: 28px;
+    --tpl-square-md: 36px;
+    --tpl-square-lg: 46px;
+
+    /* `.navbar-dark .navbar-nav .nav-link::before` — the yellow underline that
+       grows from the centre to 100% width on hover/active. */
+    --tpl-underline-h: 5px;
+
+    /* The diamond motif: `.service-item .service-icon` / `.contact-item .contact-icon`
+       Outer box is rotated -45deg; the glyph inside counter-rotates +45deg.
+       White outer, `--primary` inner → flips to `--secondary` inner on hover. */
+    --tpl-rotate-diamond: -45deg;
+    --tpl-rotate-counter: 45deg;
+    --tpl-diamond-size: 100px;
+    --tpl-diamond-overhang: -50px;   /* margin-top: -50px, pulls it over the card lip */
+
+    /* `.team-text` panel + `.team-item` spacing — the hover-reveal card motif */
+    --tpl-team-h: 90px;
+    --tpl-team-inset: 45px;
+
+    /* Navbar block `border-end border-5 border-primary` */
+    --tpl-nav-border-w: 5px;
+
+    /* `<hr class="w-25 text-secondary">` — the accent rule under every heading */
+    --tpl-hr-w: 25%;
+
+    /* Hero `style="margin-bottom: 90px"` — the source's section rhythm unit. */
+    --tpl-section-rhythm: 90px;
+
+    /* `.back-to-top` placement */
+    --tpl-backtotop-right: 30px;
+    --tpl-backtotop-bottom: 30px;
+
+    /* Card CTA that rises into view: `bottom: -30px; opacity: 0` → `bottom: 0; opacity: 1` */
+    --tpl-card-cta-rise: 30px;
+
+    /* Sticky navbar threshold from `js/main.js`: `scrollTop() > 40` */
+    --tpl-sticky-threshold: 40px;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   PART 4 — EXTENSIONS. Not in the source. See EXTENSIONS.md.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+    /* ── Typography — brief: serif headings, body ≥15px, metadata ≥11px,
+          navigation 13px, buttons 12px ───────────────────────────────────── */
+    --font-display: "Playfair Display", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --font-body: var(--bs-font-sans-serif);              /* Roboto — from source */
+    --font-condensed: "Roboto Condensed", var(--bs-font-sans-serif);  /* from source */
+    --font-mono: var(--bs-font-monospace);               /* from source */
+
+    --text-hero: clamp(2.75rem, 7.2vw, 6.5rem);
+    --text-display: clamp(2rem, 4.6vw, 3.75rem);
+    --text-h2: clamp(1.75rem, 3.2vw, 2.75rem);
+    --text-h3: clamp(1.375rem, 2.2vw, 1.875rem);
+    --text-h4: clamp(1.125rem, 1.6vw, 1.375rem);
+
+    --text-body: 1rem;          /* 16px */
+    --text-body-min: 0.9375rem; /* 15px — the brief's body floor */
+    --text-lead: 1.125rem;      /* 18px */
+    --text-nav: 0.8125rem;      /* 13px — brief */
+    --text-button: 0.75rem;     /* 12px — brief */
+    --text-ui: 0.875rem;        /* 14px */
+    --text-meta: 0.75rem;       /* 12px */
+    --text-meta-min: 0.6875rem; /* 11px — the brief's metadata floor */
+
+    --leading-tight: 1.08;
+    --leading-snug: 1.24;
+    --leading-body: 1.62;
+    --tracking-eyebrow: 0.18em;
+    --tracking-nav: 0.06em;
+    --tracking-button: 0.09em;
+    --tracking-display: -0.015em;
+
+    /* ── Semantic surface / ink roles, derived from --dark and --light ─────── */
+    --surface: #FFFFFF;
+    --surface-raised: #FBFAF6;
+    --surface-sunken: var(--light);
+    --surface-ink: var(--dark);
+    --surface-ink-raised: #33323F;
+    --surface-ink-sunken: #1D1C25;
+    --surface-glass: rgba(39, 38, 48, 0.62);
+
+    --ink: var(--dark);
+    --ink-strong: #121118;
+    --ink-muted: #5C5A6B;
+    --ink-subtle: #8A8899;
+    --ink-invert: #FFFFFF;
+    --ink-invert-muted: rgba(255, 255, 255, 0.72);
+    --ink-invert-subtle: rgba(255, 255, 255, 0.52);
+
+    --line: #E4E2DA;
+    --line-strong: #CFCCC0;
+    --line-ink: rgba(255, 255, 255, 0.14);
+    --line-ink-strong: rgba(255, 255, 255, 0.26);
+
+    /* ── Status — auction semantics. Mapped onto the source palette where
+          possible so the source hues stay dominant. ───────────────────────── */
+    --status-live: #C0392B;
+    --status-live-soft: rgba(192, 57, 43, 0.12);
+    --status-upcoming: #2F6FB5;
+    --status-upcoming-soft: rgba(47, 111, 181, 0.12);
+    --status-buynow: var(--secondary);
+    --status-buynow-soft: rgba(140, 198, 65, 0.16);
+    --status-sold: #6B6878;
+    --status-sold-soft: rgba(107, 104, 120, 0.14);
+    --status-warning: #B7791F;
+    --status-danger: #B3261E;
+    --status-success: #2F7D32;
+
+    /* Contrast-verified pairings (see a11y notes in EXTENSIONS.md):
+       --ink on --primary     = 12.4:1  AAA
+       --dark on --secondary  =  6.9:1  AA+  (white on --secondary fails: 2.1:1)
+       white on --surface-ink = 13.1:1  AAA                                */
+    --on-primary: var(--dark);
+    --on-secondary: var(--dark);
+    --on-dark: #FFFFFF;
+
+    /* ── Elevation ─────────────────────────────────────────────────────────── */
+    --shadow-xs: 0 1px 2px rgba(39, 38, 48, 0.06);
+    --shadow-sm: 0 2px 8px rgba(39, 38, 48, 0.07);
+    --shadow-md: 0 10px 28px -12px rgba(39, 38, 48, 0.22);
+    --shadow-lg: 0 26px 60px -28px rgba(39, 38, 48, 0.34);
+    --shadow-glass: 0 8px 32px -12px rgba(18, 17, 24, 0.42);
+    --shadow-focus: 0 0 0 3px rgba(39, 38, 48, 0.9), 0 0 0 6px rgba(255, 228, 104, 0.85);
+
+    /* ── Radii. `50rem` is Bootstrap's `rounded-pill`, used by every CTA. ───── */
+    --radius-sm: 3px;
+    --radius-md: 6px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-pill: var(--bs-border-radius-pill);
+
+    /* ── Motion. EFFECT-12 mandates 120–320ms for microinteractions.
+          EFFECT-22 mandates <700ms for page transitions.
+          The source's .5s stays available as the "template pace". ──────────── */
+    --dur-instant: 0ms;
+    --dur-fast: 120ms;
+    --dur-quick: 180ms;
+    --dur-base: 220ms;
+    --dur-slow: 320ms;
+    --dur-transition: 620ms;
+    --dur-gradient: 18s;
+    --dur-flip: 620ms;
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0.05, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+    /* ── Layout ────────────────────────────────────────────────────────────── */
+    --shell-max: 1440px;
+    --shell-pad: 1.25rem;
+    --nav-h: 72px;
+    --ticker-h: 30px;
+    --glass-blur: 20px;           /* brief: blur capped at 20px */
+    --skeleton-h: 100%;
+
+    /* ── Z-index scale ─────────────────────────────────────────────────────── */
+    --z-base: 1;
+    --z-rail: 5;
+    --z-sticky: 40;
+    --z-nav: 50;
+    --z-drawer: 60;
+    --z-glass-nav: 70;
+    --z-whatsapp: 80;
+    --z-cookie: 90;
+    --z-loading: 100;
+    --z-skip: 110;
+
+    /* ── Focus ring — must stay visible over the glassmorphic nav ──────────── */
+    --focus-ring: 0 0 0 3px var(--primary), 0 0 0 6px var(--surface-ink);
+    --focus-ring-invert: 0 0 0 3px var(--surface-ink), 0 0 0 6px var(--primary);
+}
+
+@media (min-width: 768px) {
+    :root {
+        --nav-h: 84px;
+        --shell-pad: 2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --shell-pad: 2.5rem;
+    }
+}

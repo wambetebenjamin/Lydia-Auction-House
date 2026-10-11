@@ -1,0 +1,239 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   LYDIA AUCTION HOUSE — GLOBAL STYLESHEET
+   Tailwind v4 entry. Design-source tokens live in ../styles/tokens.css and
+   are mapped into Tailwind's theme below. Nothing from the design source is
+   redefined here — only mapped, extended and applied.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import "tailwindcss";
+@import "../styles/tokens.css";
+@import "../styles/fonts.css";
+@import "../styles/components.css";
+@import "../styles/effects.css";
+
+/* Only scan application source — not the archived design source. */
+@source "../../src";
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   TAILWIND THEME — maps the design-source tokens to utility namespaces.
+   `inline` keeps the utilities pointing at the live CSS variable, so the
+   source values in tokens.css remain the single source of truth.
+   ─────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+    /* Colours — all four come from the design source's :root */
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-light: var(--light);
+    --color-dark: var(--dark);
+
+    --color-surface: var(--surface);
+    --color-surface-raised: var(--surface-raised);
+    --color-surface-sunken: var(--surface-sunken);
+    --color-ink: var(--ink);
+    --color-ink-strong: var(--ink-strong);
+    --color-ink-muted: var(--ink-muted);
+    --color-ink-subtle: var(--ink-subtle);
+    --color-ink-invert: var(--ink-invert);
+    --color-line: var(--line);
+    --color-line-strong: var(--line-strong);
+
+    --color-status-live: var(--status-live);
+    --color-status-upcoming: var(--status-upcoming);
+    --color-status-buynow: var(--status-buynow);
+    --color-status-sold: var(--status-sold);
+    --color-status-warning: var(--status-warning);
+    --color-status-danger: var(--status-danger);
+    --color-status-success: var(--status-success);
+
+    /* Type */
+    --font-display: var(--font-display);
+    --font-body: var(--font-body);
+    --font-condensed: var(--font-condensed);
+    --font-mono: var(--font-mono);
+
+    --text-hero: var(--text-hero);
+    --text-display: var(--text-display);
+    --text-h2: var(--text-h2);
+    --text-h3: var(--text-h3);
+    --text-h4: var(--text-h4);
+    --text-body: var(--text-body);
+    --text-body-min: var(--text-body-min);
+    --text-lead: var(--text-lead);
+    --text-nav: var(--text-nav);
+    --text-button: var(--text-button);
+    --text-ui: var(--text-ui);
+    --text-meta: var(--text-meta);
+    --text-meta-min: var(--text-meta-min);
+
+    /* Radii */
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-lg: var(--radius-lg);
+    --radius-xl: var(--radius-xl);
+    --radius-pill: var(--radius-pill);
+
+    /* Shadows */
+    --shadow-xs: var(--shadow-xs);
+    --shadow-sm: var(--shadow-sm);
+    --shadow-md: var(--shadow-md);
+    --shadow-lg: var(--shadow-lg);
+    --shadow-glass: var(--shadow-glass);
+
+    /* Motion */
+    --ease-out: var(--ease-out);
+    --ease-in-out: var(--ease-in-out);
+    --ease-spring: var(--ease-spring);
+
+    /* Layout */
+    --spacing-nav: var(--nav-h);
+    --spacing-ticker: var(--ticker-h);
+    --spacing-rhythm: var(--tpl-section-rhythm);
+    --container-shell: var(--shell-max);
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   BASE
+   ─────────────────────────────────────────────────────────────────────────── */
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        /* Offset anchor targets by the sticky nav so headings are not hidden. */
+        scroll-padding-top: calc(var(--nav-h) + var(--ticker-h) + 1rem);
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--surface);
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-size: var(--text-body);
+        line-height: var(--leading-body);
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+    }
+
+    /* Brief: serif headings carry gallery prestige. */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-display);
+        font-weight: 500;
+        line-height: var(--leading-snug);
+        letter-spacing: var(--tracking-display);
+        color: var(--ink);
+        text-wrap: balance;   /* brief: natural wrap */
+        margin: 0;
+    }
+
+    h1 { font-size: var(--text-h2); }
+    h2 { font-size: var(--text-h2); }
+    h3 { font-size: var(--text-h3); }
+    h4 { font-size: var(--text-h4); }
+    h5, h6 { font-size: var(--text-body); }
+
+    p {
+        margin: 0;
+        text-wrap: pretty;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    img, picture, video, canvas, svg {
+        display: block;
+        max-width: 100%;
+    }
+
+    img { height: auto; }
+
+    button, input, select, textarea {
+        font: inherit;
+        color: inherit;
+    }
+
+    button { background: none; border: 0; padding: 0; cursor: pointer; }
+
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+
+    table { border-collapse: collapse; width: 100%; }
+
+    hr {
+        border: 0;
+        border-top: 1px solid var(--line);
+        margin: 0;
+    }
+
+    /* The source's `<hr class="w-25 text-secondary">` under every heading,
+       reproduced as a token-driven accent rule. */
+    .rule-accent {
+        width: var(--tpl-hr-w);
+        min-width: 3rem;
+        border-top-width: 4px;
+        border-top-style: solid;
+        border-top-color: var(--secondary);
+        opacity: 1;
+    }
+
+    /* Visible focus everywhere, at the source's yellow. */
+    :focus-visible {
+        outline: 3px solid var(--primary);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+    }
+
+    ::selection {
+        background: var(--primary);
+        color: var(--dark);
+    }
+}
+
+/* Screen-reader-only text, used by EFFECT-04's clean sentence and by live
+   regions throughout the auction room. */
+@utility sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focusable variant — skip link. */
+@utility sr-only-focusable {
+    &:not(:focus):not(:focus-within) {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+}
+
+/* Tailwind v4 has no built-in breakpoint helper for the reverse case, and the
+   brief gates EFFECT-26 behind real hover support. */
+@custom-variant hover-capable {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @slot;
+        }
+    }
+}
